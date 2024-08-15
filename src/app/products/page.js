@@ -1,23 +1,23 @@
+"use client";
+
 import ProductCard from "@/components/ProductCard";
+import { useProducts } from "@/hooks/useProducts";
 
-async function getAllProducts() {
-  const res = await fetch("https://fakestoreapi.com/products");
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
-  }
+export default function Page() {
+  const { data, error, isLoading } = useProducts(); // using custom hook for data fetching
 
-  return res.json();
-}
-
-export default async function Page() {
-  const data = await getAllProducts();
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <>
-      <main className="">
-        {data.map((item) => (
-          <ProductCard product={item} key={item.id} />
-        ))}
+      <main className="container mx-auto px-4 py-8 pt-24 bg-gray-100 min-w-full">
+        <h1 className="text-3xl font-bold my-2 py-4">Our Products</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {data.map((item) => (
+            <ProductCard product={item} key={item.id} />
+          ))}
+        </div>
       </main>
     </>
   );
