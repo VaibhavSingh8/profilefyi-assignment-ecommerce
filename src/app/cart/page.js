@@ -19,7 +19,7 @@ const CartPage = () => {
           )}
         </div>
         <div className="md:col-span-1">
-          <CartSummary cart={cart} />
+          <CartSummary />
         </div>
       </div>
     </div>

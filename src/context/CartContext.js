@@ -5,6 +5,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [discount, setDiscount] = useState({ type: null, value: 0 }); // state for selecting discount
 
   // add item to the cart
   const addToCart = (product) => {
@@ -38,9 +39,25 @@ export function CartProvider({ children }) {
     );
   };
 
+  const applyDiscount = (type, value) => {
+    setDiscount({ type, value });
+  };
+
+  const removeDiscount = () => {
+    setDiscount({ type: null, value: 0 });
+  };
+
   return (
     <CartContext.Provider
-      value={{ addToCart, removeFromCart, updateCartQuantity, cart }}
+      value={{
+        addToCart,
+        removeFromCart,
+        updateCartQuantity,
+        applyDiscount,
+        removeDiscount,
+        cart,
+        discount,
+      }}
     >
       {children}
     </CartContext.Provider>
