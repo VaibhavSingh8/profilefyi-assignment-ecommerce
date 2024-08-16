@@ -30,21 +30,6 @@ const CartProduct = ({ item }) => {
       </div>
       <div>
         <QuantityCounter product={item} />
-        {/* <div className="flex gap-2 items-center">
-          <Button
-            className="w-8 h-8 p-0 text-xs bg-white hover:bg-orange-500 text-black border border-black rounded-full flex items-center justify-center"
-            onClick={handleDecreaseQty}
-          >
-            -
-          </Button>
-          <span className="text-md font-semibold px-2">{item.quantity}</span>
-          <Button
-            className="w-8 h-8 p-0 text-xs bg-black text-white border border-black rounded-full flex items-center justify-center"
-            onClick={handleIncreaseQty}
-          >
-            +
-          </Button>
-        </div> */}
         <Button
           className="flex-1 bg-orange-400 hover:bg-red-600 text-white py-2 px-4 rounded mt-4"
           onClick={() => removeFromCart(item.id)}

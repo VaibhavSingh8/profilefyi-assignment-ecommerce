@@ -20,7 +20,9 @@ const QuantityCounter = ({ product, className }) => {
     }
   };
   return (
-    <div className={`flex gap-2 items-center justify-center ${className}`}>
+    <div
+      className={`flex gap-2 mx-auto items-center justify-center ${className}`}
+    >
       <Button
         className="w-6 h-8 text-xs bg-white hover:bg-orange-400 text-black border border-black rounded-full flex items-center justify-center"
         onClick={handleDecreaseQty}

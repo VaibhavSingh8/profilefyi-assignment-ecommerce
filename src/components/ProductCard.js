@@ -33,7 +33,7 @@ const ProductCard = ({ product, className }) => {
           ₹ {(product.price * 80).toFixed(2)}
         </p>
         {cartItem ? (
-          <QuantityCounter product={cartItem} className="-mt-2" />
+          <QuantityCounter product={cartItem} className="-mt-2 w-1/2" />
         ) : (
           <Button
             className="cursor-pointer text-white"
