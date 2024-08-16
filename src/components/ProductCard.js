@@ -4,10 +4,12 @@ import Image from "next/image";
 import Button from "./Button";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import QuantityCounter from "./QuantityCounter";
 
 const ProductCard = ({ product, className }) => {
-  const { addToCart } = useCart(); // wrapper on useContext from Cart Context for data sharing and cart functionality
+  const { addToCart, cart } = useCart(); // wrapper on useContext from Cart Context for data sharing and cart functionality
 
+  const cartItem = cart.find((item) => item.id === product.id); // Check the product in the cart to determine its quantity
   const handleAddToCart = () => {
     addToCart(product);
   };
@@ -30,10 +32,17 @@ const ProductCard = ({ product, className }) => {
         <p className="text-gray-700 mb-4 font-bold text-base line-clamp-3">
           ₹ {(product.price * 80).toFixed(2)}
         </p>
-        <Button className="cursor-pointer text-white" onClick={handleAddToCart}>
-          <ShoppingCart className="mr-2 mb-1" size={20} />
-          Add to Cart
-        </Button>
+        {cartItem ? (
+          <QuantityCounter product={cartItem} className="-mt-2" />
+        ) : (
+          <Button
+            className="cursor-pointer text-white"
+            onClick={handleAddToCart}
+          >
+            <ShoppingCart className="mr-2 mb-1" size={20} />
+            Add to Cart
+          </Button>
+        )}
       </div>
     </div>
   );

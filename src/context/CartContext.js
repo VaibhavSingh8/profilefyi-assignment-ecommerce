@@ -22,6 +22,7 @@ export function CartProvider({ children }) {
         );
       } else {
         // product doesn't exist, add new entry with quantity 1
+
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });

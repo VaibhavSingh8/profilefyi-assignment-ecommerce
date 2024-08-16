@@ -1,12 +1,18 @@
 "use client";
 
 import ProductCard from "@/components/ProductCard";
+import Spinner from "@/components/Spinner";
 import { useProducts } from "@/hooks/useProducts";
 
 export default function Page() {
   const { data, error, isLoading } = useProducts(); // using custom hook for data fetching
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center mt-28">
+        <Spinner />
+      </div>
+    );
   if (error) return <div>Error: {error}</div>;
 
   return (
