@@ -1,10 +1,12 @@
 import { useCart } from "@/context/CartContext";
 import Button from "./Button";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const CartSummary = () => {
   const { applyDiscount, removeDiscount, cart, discount } = useCart();
   const [discountCode, setDiscountCode] = useState("");
+  const [errorDiscount, setErrorDiscount] = useState("");
 
   // total price calculation based on quantity
   const subtotal = cart.reduce(
@@ -26,18 +28,26 @@ const CartSummary = () => {
   const handleApplyDiscount = () => {
     if (discountCode === "FIXED10") {
       applyDiscount("fixed", 10);
+      setErrorDiscount("");
     } else if (discountCode === "PERCENT20") {
       applyDiscount("percentage", 20);
+      setErrorDiscount("");
     } else {
-      alert("Invalid discount code");
+      setErrorDiscount("Invalid discount code");
     }
 
     setDiscountCode("");
   };
 
-  const handleRemoveDiscount = () => {};
-
   const total = subtotal + tax - discountAmount;
+
+  const handleCheckout = () => {
+    if (cart.length > 0) {
+      toast.success("Check-out Successfull");
+    } else {
+      toast.error("Atleast 1 item required to proceed");
+    }
+  };
   return (
     <div className="p-6 border border-gray-200 rounded-lg bg-white shadow-md">
       <h2 className="border-b border-gray-200 text-gray-700 font-semibold text-xl mb-4 pb-2">
@@ -73,7 +83,10 @@ const CartSummary = () => {
           placeholder="Enter discount code"
           className="w-full p-2 border border-gray-300 rounded"
         />
-        <div className="flex gap-2 mt-2">
+        {errorDiscount && (
+          <p className="text-red-500 text-sm mt-1">{errorDiscount}</p>
+        )}
+        <div className="flex gap-2 mt-4">
           <Button
             onClick={handleApplyDiscount}
             className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
@@ -88,7 +101,10 @@ const CartSummary = () => {
           </Button>
         </div>
       </div>
-      <Button className="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded">
+      <Button
+        className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded"
+        onClick={handleCheckout}
+      >
         Proceed to Checkout
       </Button>
     </div>
