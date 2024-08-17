@@ -4,10 +4,15 @@ import { useCart } from "@/context/CartContext";
 import { Home, Search, ShoppingCart, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { cart } = useCart();
   const cartCount = cart?.length || 0;
+
+  const pathName = usePathname();
+  const isHomepage = pathName === "/";
+
   const NAV_LINKS = [
     { href: "/products", key: "home", label: <Home size={24} /> },
     { href: "#", key: "search", label: <Search size={24} /> },
@@ -28,8 +33,13 @@ const Header = () => {
     { href: "#", key: "user", label: <User size={24} /> },
   ];
 
+  // Do not display on Homepage
+  if (isHomepage) {
+    return null;
+  }
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm shadow-md z-10">
+    <header className="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm shadow-md z-10 ">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/">

@@ -26,6 +26,10 @@ const CartSummary = () => {
 
   // using some mock discount codes to imitate a discount feature
   const handleApplyDiscount = () => {
+    if (subtotal === 0) {
+      setErrorDiscount("Add some items to apply the discount");
+      return;
+    }
     if (discountCode === "FIXED10") {
       applyDiscount("fixed", 10);
       setErrorDiscount("");
@@ -94,7 +98,10 @@ const CartSummary = () => {
             Apply
           </Button>
           <Button
-            onClick={removeDiscount}
+            onClick={() => {
+              removeDiscount();
+              setErrorDiscount("");
+            }}
             className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
           >
             Clear
