@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js E-commerce Project - Assignment for Profile.fyi Frontend Engineer
+
+This is a modern e-commerce web application built with Next.js and styled with Tailwind CSS. It features a responsive design, dynamic product listings, and an interactive shopping cart.
+
+## Live Deployed Link: https://profilefyi-assignment-ecommerce.vercel.app/
+
+## Tech Stack
+
+- **Next.js** - React framework for production
+- **Tailwind CSS** - Utility-first CSS framework
+- **Context API** - For state management
+
+## Features
+
+### Implemented
+
+#### Product Listing
+
+- Fetches product data from [Fake Store API](https://fakestoreapi.com/)
+- Displays product details including name, price, and image
+- Responsive grid layout for various screen sizes
+
+#### Shopping Cart
+
+- Add products to cart
+- Adjust quantity of items in cart
+- Remove items from cart
+- Cart summary with total price calculation
+
+#### Cart Interactions
+
+- Quantity selectors for each product in cart
+- Remove button for individual items
+- Clear cart functionality
+
+#### Price Details
+
+- Subtotal calculation
+- Tax calculation (if applicable)
+- Total price display
+
+#### Discount Coupons
+
+- Apply discount coupons to the cart
+- Validate coupon codes
+- Display discount amount in cart summary
+
+#### State Management
+
+- Utilizes React Context API for global state management
+- Persistent cart state across page navigation
+
+### Planned Features
+
+#### User Authentication
+
+- User registration and login functionality
+- Secure authentication using JWT or similar method
+
+#### Session Management
+
+- Persistent user sessions
+- Automatic login for returning users
+
+#### Persistent Cart Storage
+
+- Save cart items to user accounts
+- Retrieve saved carts on login
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version 14 or later)
+- npm or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone https://github.com/yourusername/your-repo-name.git
+   ```
 
-## Learn More
+2. Navigate to the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   cd your-repo-name
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Deploy on Vercel
+4. Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Hope you like it! Suggestions are welcome.
