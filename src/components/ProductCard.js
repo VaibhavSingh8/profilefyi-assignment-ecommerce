@@ -15,7 +15,7 @@ const ProductCard = ({ product, className }) => {
   };
   return (
     <div
-      className={`border rounded-lg overflow-hidden shadow-lg flex flex-col h-full bg-white my-4
+      className={`border rounded-lg overflow-hidden shadow-lg mx-2 flex flex-col h-full bg-white my-4
                 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl ${className}`}
     >
       <div className="h-full overflow-hidden flex justify-center items-center border-2 border-x-cyan-800">

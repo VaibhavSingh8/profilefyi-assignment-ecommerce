@@ -17,9 +17,9 @@ export default function Page() {
 
   return (
     <>
-      <main className="container mx-auto px-4 py-8 pt-24 min-w-full bg-gradient-to-b from-gray-100 to-white">
+      <main className="container mx-auto px-6 py-8 pt-24 min-w-full bg-gradient-to-b from-gray-100 to-white">
         <h1 className="text-3xl font-bold my-2 py-4 ">Our Products</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-8">
           {data.map((item) => (
             <ProductCard product={item} key={item.id} />
           ))}
