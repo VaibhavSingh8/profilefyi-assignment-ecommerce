@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
                 "text-base max-w-lg py-4 px-6 bg-gray-50 text-gray-700",
             }}
           />
-          {children}
+          <main>{children}</main>
         </CartProvider>
         <Footer />
       </body>

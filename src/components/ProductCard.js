@@ -22,13 +22,13 @@ const ProductCard = ({ product, className }) => {
         <Image
           src={product.image}
           alt={product.title}
-          width={200}
-          height={150}
+          width={150}
+          height={120}
           objectFit="cover"
         />
       </div>
       <div className="p-4 flex-grow">
-        <h2 className=" mb-2 line-clamp-1">{product.title}</h2>
+        <h2 className=" mb-2 line-clamp-1 font-medium">{product.title}</h2>
         <p className="text-gray-700 mb-4 font-bold text-base line-clamp-3">
           ₹ {(product.price * 80).toFixed(2)}
         </p>
